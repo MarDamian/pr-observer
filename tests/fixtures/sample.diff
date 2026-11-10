@@ -1,0 +1,42 @@
+diff --git a/app/cart.py b/app/cart.py
+index 1111111..2222222 100644
+--- a/app/cart.py
++++ b/app/cart.py
+@@ -10,6 +10,8 @@ def total(items):
+     subtotal = 0
+     for item in items:
+         subtotal += item.price * item.qty
+-    return subtotal
++    -- not a header, just odd content
++    average = subtotal / len(items)
++    return subtotal, average
+
+
+@@ -40,3 +42,4 @@ def clear(cart):
+     cart.items = []
+     cart.updated = now()
++    cart.save()
+     return cart
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 3333333..4444444 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -1,2 +1,2 @@
+-lockfileVersion: '8.0'
++lockfileVersion: '9.0'
+ settings:
+diff --git a/app/old.py b/app/old.py
+deleted file mode 100644
+index 5555555..0000000
+--- a/app/old.py
++++ /dev/null
+@@ -1,2 +0,0 @@
+-def legacy():
+-    return 1
+diff --git a/logo.png b/logo.png
+index 6666666..7777777 100644
+Binary files a/logo.png and b/logo.png differ
+diff --git a/docs/notes.md b/docs/guide.md
+similarity index 100%
+rename from docs/notes.md
+rename to docs/guide.md
