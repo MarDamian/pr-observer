@@ -1,0 +1,13 @@
+# Review the repository in the current directory:
+#   docker compose run --rm observer review --base main
+# Review another repository:
+#   REPO=/path/to/repo docker compose run --rm observer review
+services:
+  observer:
+    build: .
+    image: pr-observer:dev
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - ${REPO:-.}:/repo:ro
